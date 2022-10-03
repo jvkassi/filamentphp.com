@@ -49,10 +49,11 @@ class DocumentationPage extends Model
                         'slug' => $slug,
                         'title' => $page->matter('title'),
                         'version_id' => $versionNumber,
-                        // https://github.com/filamentphp/filament/blob/2.x/packages/forms/docs/03-fields.md
                         'github_link' => Str::of($package['path'])
-                            ->after('/packages/')
-                            ->prepend("https://github.com/filamentphp/filament/blob/{$version}/packages/{$packageSlug}/{$file->getFilename()}"),
+                           ->after(resource_path())
+                           ->after("filament")
+                           ->prepend("https://github.com/filamentphp/filament/edit")
+                           ->append("/{$file->getRelativePath()}/{$file->getFilename()}")
                     ];
                 }
             }

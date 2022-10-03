@@ -137,8 +137,6 @@
                 <div class="mx-auto prose dark:prose-invert max-w-none">
                     <h1 class="font-heading">
                         {{ $page->title }}
-
-                        <a href="{{ $page->github_link }}" class="pl-5 font-bold underline">Edit on GitHub</a>
                     </h1>
 
                     @if (filled($page->section))
@@ -170,6 +168,8 @@
 
                     @markdown($page->content)
                 </div>
+
+                <x-filament-support::link href="{{ $page->github_link }}" >Edit on GitHub</x-filament-support::link>
 
                 <p class="text-lg">
                     Still need help? Join our <a href="{{ route('discord') }}" target="_blank" class="transition hover:text-primary-600">Discord community</a> or open a <a href="https://github.com/filamentphp/filament/discussions/new" target="_blank" class="transition hover:text-primary-600">GitHub discussion</a>
